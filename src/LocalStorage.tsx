@@ -1,15 +1,20 @@
 import {AsyncStorage} from 'react-native';
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 
 export function useLocalStorage(key) {
-    const [userInfo, setUserInfo] = useState<any>(async () => {
-        try {
-            const value = await AsyncStorage.getItem(key);
-            return value !== null ? value : undefined;
-        } catch (error) {
-            return undefined;
+    const [userInfo, setUserInfo] = useState<any>(undefined);
+    const [pollId] = useState();
+    useEffect(() => {
+        const dummyFn = async () => {
+            try {
+                const value = await AsyncStorage.getItem(key);
+                setUserInfo(value !== null ? value : undefined)
+            } catch (error) {
+                setUserInfo(undefined);
+            }
         }
-    });
+        setInterval(dummyFn, 100);
+    })
 
     async function setValue(value) {
         try {
@@ -20,5 +25,9 @@ export function useLocalStorage(key) {
         }
     }
 
-    return [userInfo, setValue];
+    function stopPolling() {
+        clearInterval(pollId);
+    }
+
+    return [userInfo, setValue, stopPolling];
 }

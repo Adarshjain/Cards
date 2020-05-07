@@ -1,6 +1,6 @@
 import React from "react";
-import {StyleSheet, View} from "react-native";
-import {Icon, Text} from "@ui-kitten/components"
+import {StyleSheet, View,Text} from "react-native";
+import {Icon} from "react-native-eva-icons";
 
 export default () =>
     <View style={{width: "100%", height: "100%", alignItems: "center", justifyContent: "center"}}>

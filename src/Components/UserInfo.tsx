@@ -1,12 +1,12 @@
 import React, {useState} from "react";
 import {StyleSheet, Text, TextInput, View} from "react-native";
 import {Icon} from "react-native-eva-icons";
-import {useLocalStorage} from "./Entry";
-import {randomNumber} from "./helper/Helpers";
+import {useLocalStorage} from "../LocalStorage";
+import {randomNumber} from "../helper/Helpers";
 
 
 export default function UserInfo() {
-    let [userInfo, setValue] = useLocalStorage('userInfo');
+    let [_, setValue] = useLocalStorage('userInfo');
     let [userName, setUserName] = useState('');
 
 
@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
     },
     getInfoInput: {
         backgroundColor: "#FFF",
-        padding: 24,
+        paddingLeft: 24,
         height: 50,
         borderRadius: 12,
         width: 400

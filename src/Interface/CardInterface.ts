@@ -1,8 +1,8 @@
 export enum Suit {
-    SPADES,
-    HEARTS,
-    CLUBS,
-    DIAMONDS
+    SPADES = 'SPADES',
+    HEARTS = 'HEARTS',
+    CLUBS = 'CLUBS',
+    DIAMONDS = 'DIAMONDS'
 }
 
 export interface CardItem {
@@ -11,23 +11,34 @@ export interface CardItem {
 }
 
 export interface SuitMeta {
-    design: string,
-    color: string,
+    design: SuitDesign,
+    color: SuitColor,
     suit: Suit
 }
 
 export enum Letter {
-    ONE,
-    TWO,
-    THREE,
-    FOUR,
-    FIVE,
-    SIX,
-    SEVEN,
-    EIGHT,
-    NINE,
-    TEN,
-    J,
-    Q,
-    K
+    ONE = '1',
+    TWO = '2',
+    THREE = '3',
+    FOUR = '4',
+    FIVE = '5',
+    SIX = '6',
+    SEVEN = '7',
+    EIGHT = '8',
+    NINE = '9',
+    TEN = '10',
+    J = 'J',
+    Q = 'Q',
+    K = 'K'
+}
+
+export enum SuitColor {
+    RED = "RED",
+    BLACK = "BLACK"
+}
+export enum SuitDesign {
+    SPADES = '♠',
+    HEARTS = '♥',
+    CLUBS = '♣',
+    DIAMONDS = '♦'
 }
